@@ -1,9 +1,7 @@
-package com.example.demoadress;
+package com.example.demoadress.data;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import java.util.ArrayList;
 
 public class CollectionAddressBook implements AddressBook{
 

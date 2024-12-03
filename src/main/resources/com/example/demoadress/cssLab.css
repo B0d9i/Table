@@ -1,0 +1,62 @@
+
+
+
+/**//////////*/
+.button {
+    -fx-background-color: #C0C0C0;  /* Колір заливки кнопки */
+    -fx-padding: 5px 10px;        /* Відступи */
+    -fx-text-fill: black;          /* Колір тексту */
+    -fx-font-size: 12px;            /* Розмір тексту */
+    -fx-font-family: "Arial";      /* Стиль тексту */
+    -fx-border-radius: 8px;        /* Радіус бордера */
+    -fx-background-radius: 8px;    /* Радіус фону */
+    -fx-border-color: #A9A9A9;     /* Колір бордера */
+    -fx-border-width: 2px;         /* Ширина бордера */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 5, 0.3, 0, 2); /* Тінь */
+    -fx-transition: all 0.4s ease-in-out; /* Плавний перехід */
+}
+/* Стиль при наведенні */
+.button:hover {
+    -fx-background-color: #80D080; /* Зелений колір фону при наведенні */
+    -fx-transform: scale(1.05);    /* Легка зміна розміру */
+    -fx-border-color: #60B060;    /* Зміна кольору бордера */
+}
+/* Стиль при натисканні */
+.button:pressed {
+    -fx-background-color: #70C070; /* Трохи темніший фон при натисканні */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0.5, 0, 4); /* Глибша тінь */
+    -fx-transform: scale(0.95);    /* Легка анімація зменшення */
+}
+
+
+/**.text-field{
+    -fx-background-color: #08E8DE;
+    -fx-border-color: #A4C639;
+    -fx-padding: 7px;
+}*/
+
+.label{
+        -fx-text-fill: black;           /**колір тексту*/
+        -fx-font-size: 10px;            /**розмір тексту в кнопці*/
+        -fx-font-family: "Arial"; /**стиль тексту*/
+}
+
+/**data-picker*/
+.calendar-grid { /**пн,вт,*/
+    -fx-background-color: rgb(20, 156, 255);
+}
+
+.date-picker-popup > .month-year-pane {/**Грудень, 2024*/
+    -fx-background-color: #708090;/**transparent;;*/
+    -fx-text-fill: #FFF5EE;
+}
+.date-picker-popup > * > .spinner > .button {/**кнопки на календарі*/
+    -fx-padding: 5;
+    -fx-font-family: "System";/**#708090;*/
+    -fx-border-color: "System";/**"#708090;*/
+    -fx-text-fill: #FFF5EE;
+    -fx-pref-width: -1;
+    -fx-pref-height: -1;
+    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-radius: 0;
+}

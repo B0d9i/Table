@@ -1,9 +1,9 @@
 package com.example.demoadress;
 
+import com.example.demoadress.data.CollectionAddressBook;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;

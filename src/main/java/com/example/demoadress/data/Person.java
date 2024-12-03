@@ -1,4 +1,4 @@
-package com.example.demoadress;
+package com.example.demoadress.data;
 
 public class Person {
     private String PIP;

@@ -1,5 +1,7 @@
 package com.example.demoadress;
 
+import com.example.demoadress.data.CollectionAddressBook;
+import com.example.demoadress.data.Person;
 import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,7 +28,14 @@ public class HelloController {
     @FXML
     private Label labelId;
 
+
     private CollectionAddressBook addressBookImpl = new CollectionAddressBook();
+    private static Stage stage;
+
+    public static Stage getStage() {
+        return stage;
+    }
+
 
     @FXML
     public void  initialize() {
@@ -50,7 +59,7 @@ public class HelloController {
         try {
 
 
-            Stage stage = new Stage();
+            stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("wind.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("dodatu");
@@ -66,23 +75,14 @@ public class HelloController {
             e.printStackTrace();
         }
     }
-    @FXML
-    void deleteRecord(ActionEvent event) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("del");
-            alert.setHeaderText("Results:");
-            alert.setContentText("Ви видалили запис");
 
-            alert.showAndWait();
-
-    }
     @FXML
     void openWindow1(ActionEvent event) throws IOException {
 
         try {
 
 
-            Stage stage = new Stage();
+            stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("wind2.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("Редагування");
@@ -104,8 +104,8 @@ public class HelloController {
         try {
 
 
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("wind.fxml"));
+            stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("wind3Del.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("vudalutu");
             stage.setScene(scene);
@@ -121,4 +121,34 @@ public class HelloController {
         }
     }
 
+    public void openWindowCss(ActionEvent actionEvent) {
+
+        try {
+
+
+            stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cssLab.fxml"));// в css вказати pref розміз більший за міn розмір тут
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle("css");
+            stage.setScene(scene);
+//            stage.setResizable(false);//не редагувати
+            stage.setMinHeight(500);//мін висота і довгота
+            stage.setMinWidth(500);
+            stage.setMaxHeight(900);
+            stage.setMaxWidth(1000);
+
+
+            stage.initModality(Modality.WINDOW_MODAL);//блокується вікно на якій кнопка
+            stage.initOwner(button_dobavutu.getScene().getWindow());
+
+
+            stage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void openWindowTest(ActionEvent actionEvent) {
+
+    }
 }

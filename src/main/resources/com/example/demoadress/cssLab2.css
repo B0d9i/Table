@@ -1,0 +1,125 @@
+.button {
+    -fx-background-color: linear-gradient(to bottom, #5A9BD5, #4682B4); /* Градієнт кольору */
+
+    -fx-font-size: 14px; /* Розмір тексту */
+    -fx-font-family: "Segoe UI"; /* Сучасний шрифт */
+    -fx-border-radius: 10px; /* Радіус бордера */
+    -fx-background-radius: 10px; /* Радіус фону */
+    -fx-padding: 5px 10px; /* Відступи */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.5, 0, 2); /* Тінь */
+    -fx-cursor: hand; /* Курсор у вигляді руки */
+    -fx-transition: all 0.3s ease; /* Плавний перехід */
+}
+
+/* Стиль при наведенні */
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #6BAEDC, #559BCC); /* Світліший градієнт */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0.5, 0, 3); /* Глибша тінь */
+    -fx-transform: scale(1.05); /* Легка анімація збільшення */
+}
+
+/* Стиль при натисканні */
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #4682B4, #5A9BD5); /* Зміна градієнту */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0.3, 0, 1); /* Менша тінь */
+}
+.root {
+    -fx-background-color: #F4F4F4; /* Світлий фон */
+    -fx-font-family: "Segoe UI"; /* Шрифт для всієї програми */
+    -fx-font-size: 14px; /* Розмір тексту */
+}
+
+/* Заголовки */
+.label {
+    -fx-font-weight: bold; /* Жирний текст */
+    -fx-text-fill: #333333; /* Темно-сірий текст */
+}
+
+/* Поля вводу */
+.text-field, .combo-box {
+    -fx-background-color: white; /* Білий фон */
+    -fx-border-color: #CCCCCC; /* Сірий бордер */
+    -fx-border-radius: 5px; /* Радіус бордера */
+    -fx-padding: 5px; /* Внутрішні відступи */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 3, 0.3, 0, 1); /* Тінь */
+}
+.table-view {
+    -fx-background-color: white; /* Білий фон */
+    -fx-border-color: #CCCCCC; /* Сірий бордер */
+    -fx-border-radius: 10px; /* Радіус бордера */
+    -fx-padding: 10px; /* Відступи */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.5, 0, 2); /* Тінь */
+}
+
+.table-column {
+    -fx-font-weight: bold; /* Жирний шрифт заголовків колонок */
+    -fx-text-fill: #555555; /* Сірий текст */
+}
+
+
+
+/*Data picker*/
+.date-picker {
+    -fx-background-color: linear-gradient(to bottom, #F5F5F5, #E0E0E0); /* Легкий градієнт для фону */
+    -fx-border-color: #CCCCCC; /* Сірий бордер */
+    -fx-border-radius: 10px; /* Заокруглення країв */
+    -fx-background-radius: 100px;
+    -fx-padding: 5px; /* Внутрішні відступи */
+}
+
+/* Стиль для кнопок перемикання місяця та року */
+.date-picker .button {
+    -fx-background-color: transparent; /* Прозорий фон кнопок за замовчуванням */
+    -fx-border-radius: 50%; /* Круглі кнопки */
+    -fx-background-radius: 50%;
+    -fx-cursor: hand; /* Курсор у вигляді руки */
+    -fx-padding: 5px; /* Відступи для розміру кнопок */
+    -fx-transition: all 0.3s ease; /* Плавна анімація для ефекту */
+}
+
+.date-picker .button:hover {
+    -fx-background-color: #D6EAF8; /* Світлий блакитний фон при наведенні */
+}
+
+.date-picker .button:pressed {
+    -fx-background-color: #AED6F1; /* Трохи темніший фон при натисканні */
+}
+
+/* Стиль для днів у календарі */
+.date-picker .day-cell {
+    -fx-text-fill: #333333; /* Темно-сірий текст */
+    -fx-font-size: 12px; /* Розмір тексту */
+    -fx-alignment: center; /* Центрування тексту */
+    -fx-border-color: transparent; /* Невидимі бордери */
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.date-picker .day-cell:hover {
+    -fx-background-color: #D6EAF8; /* Легкий синій фон при наведенні */
+}
+
+.date-picker .day-cell:selected {
+    -fx-background-color: #5A9BD5; /* Синій фон для вибраної дати */
+    -fx-text-fill: white; /* Білий текст для вибраної дати */
+    -fx-border-color: #4682B4; /* Синій бордер */
+}
+
+/* Заголовок календаря (місяць, рік) */
+.date-picker .month-label, .date-picker .year-label {
+    -fx-font-weight: bold; /* Жирний текст */
+    -fx-font-size: 14px; /* Розмір тексту */
+    -fx-text-fill: #555555; /* Темно-сірий текст */
+    -fx-padding: 5px 10px;
+}
+
+/*color picker*/
+rootPane.getChildren().forEach(node -> {
+    if (node instanceof Labeled) { // Labeled — це базовий клас для Label, Button тощо
+        Labeled labeledNode = (Labeled) node;
+        if (labeledNode.getText() != null && !labeledNode.getText().isEmpty()) {
+            labeledNode.setStyle(textStyle);
+        }
+    }
+});
