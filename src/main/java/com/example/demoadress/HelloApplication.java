@@ -25,7 +25,7 @@ public class HelloApplication extends Application {
     private void testData() {
         CollectionAddressBook addressBook = new CollectionAddressBook();
         addressBook.fillTestData();//задає значення
-        addressBook.print();//виводить
+        System.out.println(addressBook);//виводить
     }
     public static void main(String[] args) {
         launch();

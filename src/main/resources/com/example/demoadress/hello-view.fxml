@@ -17,17 +17,17 @@
          <children>
             <AnchorPane StackPane.alignment="CENTER">
                <children>
-                  <Button fx:id="button_dobavutu" layoutX="118.0" layoutY="20.0" mnemonicParsing="false" onAction="#openWindow" prefWidth="90.0" text="Добавити" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="20.0" />
-                  <Button fx:id="button_red" mnemonicParsing="false" onAction="#openWindow1" prefHeight="28.0" prefWidth="97.0" text="Редагувати" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
-                  <Button fx:id="button_dell" mnemonicParsing="false" onAction="#openWindow2" text="Видалити" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                  <Button fx:id="button_dobavutu" layoutX="118.0" layoutY="20.0" mnemonicParsing="false" onAction="#openWindowAdd" prefWidth="90.0" text="Добавити" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="20.0" />
+                  <Button fx:id="button_redaguvatu" mnemonicParsing="false" onAction="#openWindowEdit" prefHeight="28.0" prefWidth="97.0" text="Редагувати" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                  <Button fx:id="button_dell" mnemonicParsing="false" onAction="#openWindowDelete" text="Видалити" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0" />
                </children>
             </AnchorPane>
          </children>
       </StackPane>
       <AnchorPane prefHeight="23.0" prefWidth="362.0">
          <children>
-            <TextField layoutX="14.0" prefHeight="50.0" prefWidth="300.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="10.0" />
-            <Button fx:id="button_pochuk" layoutX="288.0" maxWidth="70.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="68.0" text="Пошук" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <TextField fx:id="textFieldScreach" layoutX="14.0" prefHeight="50.0" prefWidth="300.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="10.0" />
+            <Button fx:id="button_screach" layoutX="288.0" maxWidth="70.0" mnemonicParsing="false" onAction="#screach" prefHeight="50.0" prefWidth="68.0" text="Пошук" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="349.0" prefWidth="362.0" VBox.vgrow="ALWAYS">

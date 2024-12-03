@@ -1,31 +1,36 @@
 package com.example.demoadress;
 
-import javafx.event.ActionEvent;
+import com.example.demoadress.data.Person;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class wind2Controller {
 
+    @FXML
+    private TextField pipTextField, phoneTextField;
 
+    private Person person;
+
+    public void setPerson(Person person) {
+        this.person = person;
+        pipTextField.setText(person.getPIP());
+        phoneTextField.setText(person.getPHONE());
+    }
 
     @FXML
-    void deleteRecord(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("delete");
-        alert.setHeaderText("Результат:");
-        alert.setContentText("Ви видалили запис");
+    void saveChanges() {
+        String pip = pipTextField.getText().trim();
+        String phone = phoneTextField.getText().trim();
 
-        alert.showAndWait();
-        HelloController.getStage().close();
-    }
+        if (!pip.isEmpty()) {
+            person.setPIP(pip);
+        }
+        if (!phone.isEmpty()) {
+            person.setPHONE(phone);
+        }
 
-    public void windowSearch(ActionEvent actionEvent) {
-
-    }
-
-    public void windowRed(ActionEvent actionEvent) {
-
+        Stage stage = (Stage) pipTextField.getScene().getWindow();
+        stage.close();
     }
 }
