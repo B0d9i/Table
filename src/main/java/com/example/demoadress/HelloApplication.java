@@ -11,14 +11,14 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        // Завантаження FXML-файлу для побудови UI.
+        // Завантаження FXML-файлу для основного інтерфейсу
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
         // Створення сцени на основі завантаженого FXML.
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
 
         // Налаштування головного вікна.
-        stage.setTitle("pg"); // Встановлення заголовка вікна.
+        stage.setTitle("Address Book Application"); // Встановлення заголовка вікна.
         stage.setScene(scene); // Прив'язка сцени до вікна.
         stage.setMinHeight(600); // Встановлення мінімальної висоти вікна.
         stage.setMinWidth(600); // Встановлення мінімальної ширини вікна.
@@ -28,8 +28,8 @@ public class HelloApplication extends Application {
         testData(); // Виклик методу для тестових даних.
     }
 
-    // Метод для створення та виведення тестових даних.
     private void testData() {
+        // Створюємо об'єкт адресної книги та заповнюємо його тестовими даними
         CollectionAddressBook addressBook = new CollectionAddressBook(); // Створення екземпляра адресної книги.
         addressBook.fillTestData(); // Заповнення тестовими даними.
         System.out.println(addressBook); // Виведення адресної книги у консоль.

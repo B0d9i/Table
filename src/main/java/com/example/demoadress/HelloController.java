@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -17,6 +19,8 @@ import java.io.IOException;
 public class HelloController {
 
     // FXML-поля для елементів інтерфейсу
+    @FXML
+    private VBox rootPane;
     @FXML
     private Button button_dobavutu, button_vudalutu, button_redaguvatu; // Кнопки для додавання, видалення та редагування записів
     @FXML
@@ -51,7 +55,38 @@ public class HelloController {
         // Заповнюємо таблицю тестовими даними
         addressBookImpl.fillTestData();
         tableView.setItems(addressBookImpl.getPersonList()); // Прив'язуємо список осіб до таблиці
+        //updateStyle();
     }
+//    // Оновлення стилю для вікна
+//    private void updateStyle() {
+////        // Отримуємо поточні кольори з ColorSettings
+////        Color bgColor = ColorSettings.getBackgroundColor();
+////        Color textColor = ColorSettings.getTextColor();
+////
+////        // Якщо кольори не визначені (null), призначаємо стандартні значення
+////        if (bgColor == null) {
+////            bgColor = Color.WHITE;  // за замовчуванням білий фон
+////        }
+////        if (textColor == null) {
+////            textColor = Color.BLACK;  // за замовчуванням чорний текст
+////        }
+//
+//        // Застосовуємо кольори до елементів вікна
+//        String bgStyle = String.format("-fx-background-color: rgba(%d, %d, %d, %.2f);",
+//                (int) (bgColor.getRed() * 255), (int) (bgColor.getGreen() * 255),
+//                (int) (bgColor.getBlue() * 255), bgColor.getOpacity());
+//        rootPane.setStyle(bgStyle); // Застосовуємо до контейнера VBox
+//
+//        String textStyle = String.format("-fx-text-fill: rgba(%d, %d, %d, %.2f);",
+//                (int) (textColor.getRed() * 255), (int) (textColor.getGreen() * 255),
+//                (int) (textColor.getBlue() * 255), textColor.getOpacity());
+//
+//        rootPane.getChildren().forEach(node -> {
+//            if (node instanceof Labeled) { // Якщо елемент має текст
+//                ((Labeled) node).setStyle(textStyle);
+//            }
+//        });
+//    }
 
     // Метод для відкриття вікна додавання нового запису
     @FXML

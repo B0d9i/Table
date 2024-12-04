@@ -11,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class cssLabController {
-
     @FXML
     private ColorPicker ColorBackground;// Поле для вибору кольору фону.
     @FXML
@@ -34,68 +33,88 @@ public class cssLabController {
     @FXML
     private Label txtMedia;
 
-    // Метод для закриття вікна.
-    public void openWindowEsc(ActionEvent actionEvent) {
-        Stage stage = (Stage) buttonEsc.getScene().getWindow();// Закриття основного вікна через статичний метод `HelloController`.
-        stage.close();
-        //можлива альтернатива, але кучеряво.
-        //HelloController.getStage().close();
+    // Ініціалізація: завантажуємо попередньо збережені кольори
+    @FXML
+    public void initialize() {
+        // Завантажуємо збережені кольори з ColorUtils
+        Color savedBackgroundColor = ColorUtils.getBackgroundColor();
+        Color savedTextColor = ColorUtils.getTextColor();
+
+        // Встановлюємо ці кольори в ColorPicker
+        ColorBackground.setValue(savedBackgroundColor);
+        ColorText.setValue(savedTextColor);
+
+        // Застосовуємо ці кольори до елементів інтерфейсу
+        applyColor(savedBackgroundColor, savedTextColor);
     }
 
-    // Метод для застосування кольору фону і тексту.
-    public void aplyColor(ActionEvent actionEvent) {
-        // Отримання вибраного кольору для фону.
+    // Метод для закриття вікна
+    public void openWindowEsc(ActionEvent actionEvent) {
+        Stage stage = (Stage) buttonEsc.getScene().getWindow();
+        stage.close();
+    }
+
+    // Метод для застосування кольору фону та тексту
+    public void applyColor(ActionEvent actionEvent) {
+        // Отримуємо вибраний колір фону та тексту з ColorPickers
         Color bgColor = ColorBackground.getValue();
-        String bgStyle = String.format("-fx-background-color: rgba(%d, %d, %d, %.2f);",
-                (int) (bgColor.getRed() * 255), // Червона компонента кольору.
-                (int) (bgColor.getGreen() * 255), // Зелена компонента кольору.
-                (int) (bgColor.getBlue() * 255), // Синя компонента кольору.
-                bgColor.getOpacity()); // Прозорість кольору.
-        rootPane.setStyle(bgStyle); // Застосування стилю до контейнера VBox.
-
-        // Отримання вибраного кольору для тексту.
         Color textColor = ColorText.getValue();
-        String textStyle = String.format("-fx-text-fill: rgba(%d, %d, %d, %.2f);",
-                (int) (textColor.getRed() * 255),
-                (int) (textColor.getGreen() * 255),
-                (int) (textColor.getBlue() * 255),
-                textColor.getOpacity());// Застосування стилю до тексту
 
-        // Проходження через всі дочірні елементи VBox. метод не працює))))
+//        // Зберігаємо вибрані кольори в ColorSettings для подальшого використання
+//        ColorSettings.setBackgroundColor(bgColor);
+//        ColorSettings.setTextColor(textColor);
+
+        // Збереження вибраних кольорів через ColorUtils
+        ColorUtils.saveColors(bgColor, textColor);
+
+        // Застосовуємо ці кольори до елементів інтерфейсу
+        applyColor(bgColor, textColor);
+    }
+
+    // Метод, який безпосередньо застосовує кольори до стилів елементів інтерфейсу
+    private void applyColor(Color bgColor, Color textColor) {
+        // Застосовуємо колір фону до кореневого контейнера (VBox)
+        String bgStyle = String.format("-fx-background-color: rgba(%d, %d, %d, %.2f);",
+                (int) (bgColor.getRed() * 255), (int) (bgColor.getGreen() * 255),
+                (int) (bgColor.getBlue() * 255), bgColor.getOpacity());
+        rootPane.setStyle(bgStyle);
+
+        // Застосовуємо колір тексту до лейблів
+        String textStyle = String.format("-fx-text-fill: rgba(%d, %d, %d, %.2f);",
+                (int) (textColor.getRed() * 255), (int) (textColor.getGreen() * 255),
+                (int) (textColor.getBlue() * 255), textColor.getOpacity());
+
+        // Проходимо через всі дочірні елементи rootPane і застосовуємо стиль тексту до всіх елементів, що мають текст
         rootPane.getChildren().forEach(node -> {
-            if (node instanceof Labeled) { // Якщо елемент підтримує текст.
+            if (node instanceof Labeled) {
                 ((Labeled) node).setStyle(textStyle);
             }
         });
 
-        // Застосування стилів до кнопок (фон і контур).
+        // Застосовуємо стиль до кнопок (фон та межі)
         String buttonStyle = String.format(
-                "-fx-background-color: rgba(%d, %d, %d, %.2f); " + // Фон кнопки.
-                        "-fx-border-color: rgba(%d, %d, %d, %.2f); " + // Контур кнопки.
-                        "-fx-border-width: 2;", // Ширина контуру.
+                "-fx-background-color: rgba(%d, %d, %d, %.2f); " +
+                        "-fx-border-color: rgba(%d, %d, %d, %.2f); " +
+                        "-fx-border-width: 2;",
                 (int) (bgColor.getRed() * 255), (int) (bgColor.getGreen() * 255),
                 (int) (bgColor.getBlue() * 255), bgColor.getOpacity(),
                 (int) (textColor.getRed() * 255), (int) (textColor.getGreen() * 255),
                 (int) (textColor.getBlue() * 255), textColor.getOpacity());
 
+        // Застосовуємо стиль до кнопок
         buttonEsc.setStyle(buttonStyle);
         buttonColor.setStyle(buttonStyle);
         buttonData.setStyle(buttonStyle);
 
-        // Застосування стилю тексту для кнопок, якщо вони містять текст.
+        // Оновлюємо стиль тексту для кнопок
         buttonEsc.setStyle(buttonStyle + textStyle);
         buttonColor.setStyle(buttonStyle + textStyle);
         buttonData.setStyle(buttonStyle + textStyle);
 
-        // Оновлення стилю для лейблів вручну (якщо потрібно).
+        // Оновлення стилю тексту для лейблів
         txtBgColor.setStyle(textStyle);
         txtColor.setStyle(textStyle);
         txtData.setStyle(textStyle);
         txtMedia.setStyle(textStyle);
-    }
-
-    // Метод для застосування даних (поки не реалізовано).
-    public void aplyData(ActionEvent actionEvent) {
-        // треба зробити щоб label відображав вказану дату
     }
 }

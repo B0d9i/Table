@@ -35,6 +35,6 @@ public class wind3DelController {
         // Закриваємо поточне вікно
         Stage stage = (Stage) buttonDod.getScene().getWindow();
         stage.close();
-        //HelloController.getStage().close(); // Закриття через інший спосіб (закоментовано)
+        //HelloController.getStage().close(); // Закриття через інший спосіб
     }
 }
