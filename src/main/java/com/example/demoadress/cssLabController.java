@@ -9,29 +9,33 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import lombok.Getter;
 
 public class cssLabController {
-    @FXML
+    @FXML @Getter
     private ColorPicker ColorBackground;// Поле для вибору кольору фону.
-    @FXML
+    @FXML @Getter
     private ColorPicker ColorText;// Поле для вибору кольору тексту.
-    @FXML
+    @FXML @Getter
     private Button buttonColor;// Кнопка для застосування кольору.
-    @FXML
+    @FXML @Getter
     private Button buttonData;// Кнопка для оновлення даних (функціонал поки не реалізований).
-    @FXML
+    @FXML @Getter
     private Button buttonEsc;// Кнопка для закриття вікна.
-    @FXML
+    @FXML @Getter
     private VBox rootPane;// Контейнер VBox, до якого застосовуються стилі.
-    @FXML
+    @FXML @Getter
     private Label txtBgColor;// Лейбли для відображення текстових повідомлень.
 
-    @FXML
+    @FXML @Getter
     private Label txtColor;
-    @FXML
+    @FXML @Getter
     private Label txtData;
-    @FXML
+    @FXML @Getter
     private Label txtMedia;
+
+
+
 
     // Ініціалізація: завантажуємо попередньо збережені кольори
     @FXML
@@ -67,12 +71,14 @@ public class cssLabController {
         // Збереження вибраних кольорів через ColorUtils
         ColorUtils.saveColors(bgColor, textColor);
 
+        System.out.println(bgColor+"//"+textColor);
         // Застосовуємо ці кольори до елементів інтерфейсу
         applyColor(bgColor, textColor);
     }
 
     // Метод, який безпосередньо застосовує кольори до стилів елементів інтерфейсу
-    private void applyColor(Color bgColor, Color textColor) {
+
+    public void applyColor(Color bgColor, Color textColor) {
         // Застосовуємо колір фону до кореневого контейнера (VBox)
         String bgStyle = String.format("-fx-background-color: rgba(%d, %d, %d, %.2f);",
                 (int) (bgColor.getRed() * 255), (int) (bgColor.getGreen() * 255),

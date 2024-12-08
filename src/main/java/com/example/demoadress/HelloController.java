@@ -13,11 +13,18 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import lombok.Getter;
 
 import java.io.IOException;
 
+import static com.example.demoadress.ColorUtils.getBackgroundColor;
+
 public class HelloController {
 
+    @FXML @Getter
+    private ColorPicker ColorBackground;// Поле для вибору кольору фону.
+    @FXML @Getter
+    private ColorPicker ColorText;// Поле для вибору кольору тексту.
     // FXML-поля для елементів інтерфейсу
     @FXML
     private VBox rootPane;
@@ -35,6 +42,7 @@ public class HelloController {
     private CollectionAddressBook addressBookImpl = new CollectionAddressBook(); // Об'єкт для роботи зі списком осіб
     private Stage stage; // Головна сцена, яка використовується у додатку
 
+    cssLabController cssLabController=new cssLabController();
 
     public Stage getStage() {
         return stage;
@@ -56,37 +64,26 @@ public class HelloController {
         addressBookImpl.fillTestData();
         tableView.setItems(addressBookImpl.getPersonList()); // Прив'язуємо список осіб до таблиці
         //updateStyle();
+
+//        // Завантажуємо збережені кольори з ColorUtils
+//        Color savedBackgroundColor = getBackgroundColor();
+//        Color savedTextColor = ColorUtils.getTextColor();
+//
+//        // Якщо кольори не задані, використовуємо значення за замовчуванням
+//        if (savedBackgroundColor == null) {
+//            savedBackgroundColor = Color.WHITE; // Значення за замовчуванням для фону
+//        }
+//        if (savedTextColor == null) {
+//            savedTextColor = Color.BLACK; // Значення за замовчуванням для тексту
+//        }
+//
+//        // Встановлюємо ці кольори в ColorPicker
+//        ColorBackground.setValue(savedBackgroundColor);
+//        ColorText.setValue(savedTextColor);
+//
+//        // Застосовуємо ці кольори до елементів інтерфейсу
+//        cssLabController.applyColor(savedBackgroundColor, savedTextColor);
     }
-//    // Оновлення стилю для вікна
-//    private void updateStyle() {
-////        // Отримуємо поточні кольори з ColorSettings
-////        Color bgColor = ColorSettings.getBackgroundColor();
-////        Color textColor = ColorSettings.getTextColor();
-////
-////        // Якщо кольори не визначені (null), призначаємо стандартні значення
-////        if (bgColor == null) {
-////            bgColor = Color.WHITE;  // за замовчуванням білий фон
-////        }
-////        if (textColor == null) {
-////            textColor = Color.BLACK;  // за замовчуванням чорний текст
-////        }
-//
-//        // Застосовуємо кольори до елементів вікна
-//        String bgStyle = String.format("-fx-background-color: rgba(%d, %d, %d, %.2f);",
-//                (int) (bgColor.getRed() * 255), (int) (bgColor.getGreen() * 255),
-//                (int) (bgColor.getBlue() * 255), bgColor.getOpacity());
-//        rootPane.setStyle(bgStyle); // Застосовуємо до контейнера VBox
-//
-//        String textStyle = String.format("-fx-text-fill: rgba(%d, %d, %d, %.2f);",
-//                (int) (textColor.getRed() * 255), (int) (textColor.getGreen() * 255),
-//                (int) (textColor.getBlue() * 255), textColor.getOpacity());
-//
-//        rootPane.getChildren().forEach(node -> {
-//            if (node instanceof Labeled) { // Якщо елемент має текст
-//                ((Labeled) node).setStyle(textStyle);
-//            }
-//        });
-//    }
 
     // Метод для відкриття вікна додавання нового запису
     @FXML

@@ -3,6 +3,7 @@ module com.example.demoadress {
     requires javafx.fxml;
     requires java.desktop;
     requires java.prefs;
+    requires static lombok;
 
 
     opens com.example.demoadress to javafx.fxml;
