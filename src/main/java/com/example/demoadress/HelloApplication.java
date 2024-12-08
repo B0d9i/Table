@@ -14,6 +14,7 @@ public class HelloApplication extends Application {
         // Завантаження FXML-файлу для основного інтерфейсу
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
+
         // Створення сцени на основі завантаженого FXML.
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
 
