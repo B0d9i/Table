@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 // Контролер для вікна (Wind1)
-public class wind1Controller {
+public class Wind1Controller {
 
     // Оголошення елементів інтерфейсу
     @FXML

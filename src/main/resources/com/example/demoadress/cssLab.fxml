@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" stylesheets="@cssLab2.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoadress.cssLabController">
+<VBox fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" stylesheets="@cssLab2.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoadress.CssLabController">
    <children>
       <StackPane VBox.vgrow="NEVER" />
       <AnchorPane prefHeight="349.0" prefWidth="362.0" VBox.vgrow="ALWAYS">

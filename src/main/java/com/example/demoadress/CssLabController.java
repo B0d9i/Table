@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import lombok.Getter;
 
-public class cssLabController {
+public class CssLabController {
     @FXML @Getter
     private ColorPicker ColorBackground;// Поле для вибору кольору фону.
     @FXML @Getter

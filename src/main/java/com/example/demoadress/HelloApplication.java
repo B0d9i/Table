@@ -33,7 +33,6 @@ public class HelloApplication extends Application {
         // Створюємо об'єкт адресної книги та заповнюємо його тестовими даними
         CollectionAddressBook addressBook = new CollectionAddressBook(); // Створення екземпляра адресної книги.
         addressBook.fillTestData(); // Заповнення тестовими даними.
-        System.out.println(addressBook); // Виведення адресної книги у консоль.
     }
 
     // Точка входу в програму.

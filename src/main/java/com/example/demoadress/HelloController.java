@@ -10,14 +10,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lombok.Getter;
 
 import java.io.IOException;
-
-import static com.example.demoadress.ColorUtils.getBackgroundColor;
 
 public class HelloController {
 
@@ -42,7 +39,7 @@ public class HelloController {
     private CollectionAddressBook addressBookImpl = new CollectionAddressBook(); // Об'єкт для роботи зі списком осіб
     private Stage stage; // Головна сцена, яка використовується у додатку
 
-    cssLabController cssLabController=new cssLabController();
+    CssLabController cssLabController=new CssLabController();
 
     public Stage getStage() {
         return stage;
@@ -97,7 +94,7 @@ public class HelloController {
             stage.setResizable(false); // Заборона зміни розміру вікна
 
             // Отримуємо контролер нового вікна
-            wind1Controller controller = fxmlLoader.getController();
+            Wind1Controller controller = fxmlLoader.getController();
             controller.setPerson(new Person()); // Передаємо новий об'єкт Person
 
             // Налаштування модального режиму (вікно блокує основне)
@@ -133,7 +130,7 @@ public class HelloController {
                 editStage.setScene(scene);
 
                 // Передаємо вибраного користувача в контролер нового вікна
-                wind2Controller controller = loader.getController();
+                Wind2Controller controller = loader.getController();
                 controller.setPerson(selectedPerson);
 
                 // Налаштовуємо модальність

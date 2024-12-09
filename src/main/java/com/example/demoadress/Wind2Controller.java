@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 // Контролер для другого вікна (Wind2)
-public class wind2Controller {
+public class Wind2Controller {
 
     // Оголошення полів для вводу ПІП та телефону
     @FXML

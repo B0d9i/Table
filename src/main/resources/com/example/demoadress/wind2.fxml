@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="200.0" prefWidth="400.0" stylesheets="@cssLab2.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoadress.wind2Controller">
+<AnchorPane prefHeight="200.0" prefWidth="400.0" stylesheets="@cssLab2.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoadress.Wind2Controller">
    <children>
       <Button fx:id="ButtonRed" layoutX="289.0" layoutY="96.0" mnemonicParsing="false" onAction="#saveChanges" text="Редагувати" />
       <TextField fx:id="pipTextField" layoutX="104.0" layoutY="70.0" promptText="Введіть ПІП" />

@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="175.0" prefWidth="351.0" stylesheets="@cssLab2.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoadress.wind3DelController">
+<AnchorPane prefHeight="175.0" prefWidth="351.0" stylesheets="@cssLab2.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoadress.Wind3DelController">
    <children>
       <Button fx:id="buttonDel" layoutX="248.0" layoutY="75.0" mnemonicParsing="false" onAction="#deleteRecord" prefHeight="28.0" prefWidth="89.0" text="Видалити" />
       <TextField fx:id="txtPip" layoutX="61.0" layoutY="74.0" />

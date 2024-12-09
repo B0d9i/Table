@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 // Контролер для вікна видалення запису (Wind3Del)
-public class wind3DelController {
+public class Wind3DelController {
 
     // Оголошення елементів інтерфейсу
     @FXML
