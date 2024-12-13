@@ -15,7 +15,7 @@
 .button:hover {
     -fx-background-color: linear-gradient(to bottom, #6BAEDC, #559BCC); /* Світліший градієнт */
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0.5, 0, 3); /* Глибша тінь */
-    -fx-transform: scale(1.05); /* Легка анімація збільшення */
+   /* -fx-transform: scale(1.05); /* Легка анімація збільшення */
 }
 
 /* Стиль при натисканні */

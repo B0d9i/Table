@@ -2,6 +2,9 @@ package com.example.demoadress.data;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+
+import java.awt.event.ActionEvent;
 
 // Клас для роботи з колекцією контактів, який реалізує інтерфейс AddressBook.
 public class CollectionAddressBook implements AddressBook {
@@ -38,4 +41,8 @@ public class CollectionAddressBook implements AddressBook {
         personList.add(new Person("Oksana", "02365")); // Додавання тестового контакту.
         personList.add(new Person("Petro", "465875")); // Додавання тестового контакту.
     }
+
+
+
+
 }

@@ -2,14 +2,20 @@ package com.example.demoadress;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.control.Button;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lombok.Getter;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class CssLabController {
     @FXML @Getter
@@ -33,9 +39,14 @@ public class CssLabController {
     private Label txtData;
     @FXML @Getter
     private Label txtMedia;
+    @FXML
+    private DatePicker DataPicer;
 
+    @FXML
+    private ImageView img;
 
-
+    @FXML
+    private Button buttonfileChooser;
 
     // Ініціалізація: завантажуємо попередньо збережені кольори
     @FXML
@@ -111,11 +122,13 @@ public class CssLabController {
         buttonEsc.setStyle(buttonStyle);
         buttonColor.setStyle(buttonStyle);
         buttonData.setStyle(buttonStyle);
+//        buttonfileChooser.setStyle(buttonStyle);
 
         // Оновлюємо стиль тексту для кнопок
         buttonEsc.setStyle(buttonStyle + textStyle);
         buttonColor.setStyle(buttonStyle + textStyle);
         buttonData.setStyle(buttonStyle + textStyle);
+        buttonfileChooser.setStyle(buttonStyle + textStyle);
 
         // Оновлення стилю тексту для лейблів
         txtBgColor.setStyle(textStyle);
@@ -123,4 +136,29 @@ public class CssLabController {
         txtData.setStyle(textStyle);
         txtMedia.setStyle(textStyle);
     }
+
+    public void DataSelect(ActionEvent actionEvent) {
+        LocalDate myDate = DataPicer.getValue();
+        System.out.println(myDate.toString());
+        String dateFormatter =
+                myDate.format(DateTimeFormatter.ofPattern("dd.MM.yyy"));
+        txtData.setText(dateFormatter);
+    }
+    @FXML
+    void fileChooser(ActionEvent event) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+
+        fileChooser.setTitle("Get Image");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("image", "*.png"));
+        Stage stage = (Stage) rootPane.getScene().getWindow();
+
+        File file = fileChooser.showOpenDialog(stage);
+
+        if (file!=null) {
+            URI uri = file.toURI();
+            Image image = new Image(uri.toString());
+            img.setImage(image);
+        }
+    }
+
 }

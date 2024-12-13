@@ -2,7 +2,9 @@ package com.example.demoadress;
 
 import com.example.demoadress.data.CollectionAddressBook;
 import com.example.demoadress.data.Person;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +30,8 @@ public class HelloController {
     @FXML
     private Button button_dobavutu, button_vudalutu, button_redaguvatu; // Кнопки для додавання, видалення та редагування записів
     @FXML
+    private TextField textFieldScreach;
+    @FXML
     private TableColumn<Person, String> columnPIP; // Колонка для відображення імені (PIP)
     @FXML
     private TableColumn<Person, String> columnPhone; // Колонка для відображення телефону
@@ -40,6 +44,9 @@ public class HelloController {
     private Stage stage; // Головна сцена, яка використовується у додатку
 
     CssLabController cssLabController=new CssLabController();
+    CollectionAddressBook collectionAddressBook=new CollectionAddressBook();
+
+    ObservableList<Person> filteredList = FXCollections.observableArrayList();
 
     public Stage getStage() {
         return stage;
@@ -209,5 +216,16 @@ public class HelloController {
     public void openWindowTest(ActionEvent actionEvent) {}
 
     // Метод для пошуку (ще не реалізований)
-    public void screach(ActionEvent actionEvent) {}
+    @FXML
+    public void screach() {
+        String searchText = textFieldScreach.getText().toLowerCase();
+        filteredList = FXCollections.observableArrayList();
+        for (Person person : addressBookImpl.getPersonList()) {
+            if (person.getPIP().toLowerCase().contains(searchText) || person.getPHONE().contains(searchText)) {
+                filteredList.add(person);
+            }
+        }
+        tableView.setItems(filteredList);
+    }
+
 }

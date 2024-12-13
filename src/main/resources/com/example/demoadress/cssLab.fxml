@@ -16,19 +16,19 @@
          <children>
             <Button fx:id="buttonEsc" layoutX="10.0" layoutY="232.0" mnemonicParsing="false" onAction="#openWindowEsc" prefHeight="25.0" prefWidth="90.0" text="esc" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
             <ColorPicker fx:id="ColorBackground" layoutX="15.0" layoutY="42.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="50.0" />
-            <DatePicker layoutX="449.0" layoutY="24.0" prefHeight="25.0" prefWidth="135.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="25.0" />
+            <DatePicker fx:id="DataPicer" layoutX="449.0" layoutY="24.0" prefHeight="25.0" prefWidth="135.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="25.0" />
             <ColorPicker fx:id="ColorText" layoutX="177.0" layoutY="42.0" AnchorPane.topAnchor="50.0" />
             <Label fx:id="txtBgColor" layoutX="30.0" layoutY="21.0" text="Color Background" AnchorPane.topAnchor="25.0" />
             <Label fx:id="txtColor" layoutX="217.0" layoutY="22.0" text="Color Text" AnchorPane.topAnchor="25.0" />
             <Button fx:id="buttonColor" layoutX="120.0" layoutY="74.0" mnemonicParsing="false" onAction="#applyColor" text="Застосувати" AnchorPane.topAnchor="85.0" />
             <StackPane layoutX="26.0" layoutY="117.0" prefHeight="225.0" prefWidth="350.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="120.0">
                <children>
-                  <Label fx:id="txtMedia" text="Filefolder для показу фото, відео, музики" StackPane.alignment="TOP_CENTER" />
-                  <ImageView fitHeight="150.0" fitWidth="348.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_CENTER" />
-                  <Button mnemonicParsing="false" text="//" StackPane.alignment="BOTTOM_CENTER" />
+                  <Label fx:id="txtMedia" text="Filefolder для показу фото" StackPane.alignment="TOP_CENTER" />
+                  <Button fx:id="buttonfileChooser" mnemonicParsing="false" onAction="#fileChooser" text="Завантажити фото" StackPane.alignment="BOTTOM_CENTER" />
+                  <ImageView fx:id="img" fitHeight="364.0" fitWidth="475.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </StackPane>
-            <Button fx:id="buttonData" layoutX="288.0" layoutY="74.0" mnemonicParsing="false"  text="Застосувати" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="85.0" />
+            <Button fx:id="buttonData" layoutX="288.0" layoutY="74.0" mnemonicParsing="false" onAction="#DataSelect" text="Застосувати" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="85.0" />
             <Label fx:id="txtData" layoutX="276.0" layoutY="370.0" text="тут дата показує і час" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="25.0" />
          </children>
       </AnchorPane>
