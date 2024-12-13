@@ -95,7 +95,7 @@
                   <Insets bottom="5.0" left="90.0" right="5.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Label fx:id="labelChoiseBox" text="Label">
+            <Label fx:id="labelChoiseBox">
                <VBox.margin>
                   <Insets bottom="5.0" left="120.0" right="5.0" top="5.0" />
                </VBox.margin>
@@ -125,7 +125,7 @@
                   <Insets bottom="5.0" left="60.0" right="5.0" top="25.0" />
                </VBox.margin>
             </ComboBox>
-            <Label fx:id="labelComboBox" text="Label">
+            <Label fx:id="labelComboBox">
                <VBox.margin>
                   <Insets bottom="5.0" left="120.0" right="5.0" top="5.0" />
                </VBox.margin></Label>
@@ -171,7 +171,7 @@
                <VBox.margin>
                   <Insets bottom="5.0" left="100.0" right="5.0" top="20.0" />
                </VBox.margin></Button>
-            <Label fx:id="labelRadioButton" text="Label">
+            <Label fx:id="labelRadioButton">
                <VBox.margin>
                   <Insets bottom="25.0" left="120.0" right="25.0" top="25.0" />
                </VBox.margin></Label>

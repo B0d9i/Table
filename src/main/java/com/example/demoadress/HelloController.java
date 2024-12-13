@@ -214,10 +214,10 @@ public class HelloController {
 
     // Метод для відкриття тестового вікна (ще не реалізований)
     public void openWindowTest(ActionEvent actionEvent) throws IOException {
-            stage = new Stage(); // Створення нового вікна
+
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("test.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("TEST");
+            stage.setTitle("ТЕСТ");
             stage.setScene(scene);
             stage.setMinWidth(1200);
             stage.setMinHeight(400);
