@@ -221,6 +221,11 @@ public class HelloController {
             stage.setScene(scene);
             stage.setMinWidth(1200);
             stage.setMinHeight(400);
+
+            // Налаштування модальності
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(button_dobavutu.getScene().getWindow());
+
             stage.show();
     }
 
