@@ -1,181 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1079.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoadress.TestController">
-   <children>
-      <VBox prefHeight="400.0" prefWidth="208.0">
-         <children>
-            <Label prefHeight="50.0" prefWidth="134.0" text="CheckBox" textFill="#ff00ff" textOverrun="CLIP">
-               <VBox.margin>
-                  <Insets bottom="20.0" left="40.0" right="20.0" top="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Bodoni MT" size="31.0" />
-               </font>
-            </Label>
-            <Label prefHeight="27.0" prefWidth="202.0" text="Хто КН ?">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="5.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Label>
-            <CheckBox fx:id="Natalia" mnemonicParsing="false" text="Наталія">
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-            </CheckBox>
-            <CheckBox fx:id="Bogdan" mnemonicParsing="false" text="Богдан">
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-            </CheckBox>
-            <CheckBox fx:id="Ivan" mnemonicParsing="false" text="Іван">
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-            </CheckBox>
-            <Button fx:id="ButtonCheckBox" mnemonicParsing="false" onAction="#checkCheckBox" prefHeight="25.0" prefWidth="86.0" text="перевірити">
-               <VBox.margin>
-                  <Insets left="20.0" top="20.0" />
-               </VBox.margin>
-            </Button>
-            <Label fx:id="labelCheckBox" prefHeight="35.0" prefWidth="178.0" text="Відповідь:">
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin>
-            </Label>
-         </children>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoadress.TestController">
+   <VBox spacing="10" alignment="CENTER" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0">
+      <Label text="Тести про університет" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+      <!-- Multi-Answer Question -->
+      <VBox spacing="5">
+         <Label text="Обрати правильних студентів:"/>
+         <CheckBox fx:id="checkBoxStudent1" text="Богдан Дмитрук"/>
+         <CheckBox fx:id="checkBoxStudent2" text="Мартін Думас"/>
+         <CheckBox fx:id="checkBoxStudent3" text="Роман Гринь"/>
+         <Button fx:id="buttonVerifyMultiAnswer" text="Перевірити" onAction="#verifyMultiAnswer"/>
+         <Label fx:id="labelMultiAnswerResult" text="" style="-fx-text-fill: blue;"/>
       </VBox>
-      <VBox prefHeight="400.0" prefWidth="270.0">
-         <children>
-            <Label prefHeight="48.0" prefWidth="146.0" text="ChoiseBox" textFill="#00ff1e">
-               <VBox.margin>
-                  <Insets bottom="20.0" left="65.0" right="20.0" top="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Bodoni MT" size="31.0" />
-               </font>
-            </Label>
-            <Label prefHeight="16.0" prefWidth="200.0" text="В якій групі Дмитрук Б.О.?">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="45.0" right="5.0" top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Label>
-            <ChoiceBox fx:id="choiceBox" prefWidth="150.0">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="60.0" right="5.0" top="15.0" />
-               </VBox.margin>
-            </ChoiceBox>
-            <Button fx:id="ButtonChoiseBox" mnemonicParsing="false" onAction="#checkChoiseBox" text="Перевірити">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="90.0" right="5.0" top="20.0" />
-               </VBox.margin>
-            </Button>
-            <Label fx:id="labelChoiseBox">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="120.0" right="5.0" top="5.0" />
-               </VBox.margin>
-            </Label>
-         </children>
+
+      <!-- ChoiceBox Question -->
+      <VBox spacing="5">
+         <Label text="Оберіть кафедру:"/>
+         <ChoiceBox fx:id="choiceBoxDepartment"/>
+         <Button fx:id="buttonVerifyChoice" text="Перевірити" onAction="#verifyChoiceBox"/>
+         <Label fx:id="labelChoiceResult" text="" style="-fx-text-fill: blue;"/>
       </VBox>
-      <VBox prefHeight="400.0" prefWidth="270.0">
-         <children>
-            <Label prefHeight="42.0" prefWidth="150.0" text="ComboBox" textFill="#0040ff">
-               <VBox.margin>
-                  <Insets bottom="20.0" left="65.0" right="20.0" top="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Bodoni MT" size="31.0" />
-               </font>
-            </Label>
-            <Label prefHeight="20.0" prefWidth="212.0" text="В якій групі навчається Наталія?">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="35.0" right="5.0" top="15.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="ComboBox" prefWidth="150.0">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="60.0" right="5.0" top="25.0" />
-               </VBox.margin>
-            </ComboBox>
-            <Label fx:id="labelComboBox">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="120.0" right="5.0" top="5.0" />
-               </VBox.margin></Label>
-         </children>
+
+      <!-- ComboBox Question -->
+      <VBox spacing="5">
+         <Label text="Оберіть спеціальність:"/>
+         <ComboBox fx:id="comboBoxSpecialization" promptText="Введіть спеціальність"/>
+         <Label fx:id="labelComboBoxResult" text="" style="-fx-text-fill: green;"/>
       </VBox>
-      <VBox prefHeight="400.0" prefWidth="270.0">
-         <children>
-            <Label prefHeight="39.0" prefWidth="179.0" text="RadioButton" textFill="#ffae00">
-               <VBox.margin>
-                  <Insets bottom="20.0" left="55.0" right="20.0" top="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Bodoni MT" size="31.0" />
-               </font>
-            </Label>
-            <Label prefHeight="18.0" prefWidth="182.0" text="Улюблений предмет">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
-               </VBox.margin>
-            </Label>
-            <RadioButton fx:id="LMV" mnemonicParsing="false" text="Людино-машинна взаємодія">
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin></RadioButton>
-            <RadioButton fx:id="TVOI" mnemonicParsing="false" prefHeight="37.0" prefWidth="257.0" text="Технології віртуальних об'єктів Інтернет">
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin></RadioButton>
-            <RadioButton fx:id="KG" mnemonicParsing="false" text="Комп'ютерна графіка">
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin></RadioButton>
-            <Button fx:id="ButtonRadioButton" mnemonicParsing="false" onAction="#checkRadioButton" text="Відповісти">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="100.0" right="5.0" top="20.0" />
-               </VBox.margin></Button>
-            <Label fx:id="labelRadioButton">
-               <VBox.margin>
-                  <Insets bottom="25.0" left="120.0" right="25.0" top="25.0" />
-               </VBox.margin></Label>
-         </children>
+
+      <!-- RadioButton Question -->
+      <VBox spacing="5">
+         <Label text="Ваш улюблений курс?"/>
+         <RadioButton fx:id="radioButtonFavoriteCourse1" text="Основи програмування"/>
+         <RadioButton fx:id="radioButtonFavoriteCourse2" text="Математичний аналіз"/>
+         <RadioButton fx:id="radioButtonFavoriteCourse3" text="Мережі та безпека"/>
+         <Button fx:id="buttonVerifyRadio" text="Перевірити" onAction="#verifyRadioButton"/>
+         <Label fx:id="labelRadioResult" text="" style="-fx-text-fill: red;"/>
       </VBox>
-   </children>
-</HBox>
+   </VBox>
+</AnchorPane>

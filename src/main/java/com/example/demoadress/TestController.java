@@ -9,129 +9,138 @@ import javafx.scene.control.*;
 public class TestController {
 
     @FXML
-    private CheckBox Bogdan;
+    private CheckBox checkBoxStudent1;
     @FXML
-    private Button ButtonCheckBox;
+    private CheckBox checkBoxStudent2;
     @FXML
-    private Button ButtonChoiseBox;
+    private CheckBox checkBoxStudent3;
     @FXML
-    private Button ButtonRadioButton;
+    private Button buttonVerifyMultiAnswer;
     @FXML
-    private CheckBox Ivan;
-    @FXML
-    private RadioButton KG;
-    @FXML
-    private RadioButton LMV;
-    @FXML
-    private CheckBox Natalia;
-    @FXML
-    private RadioButton TVOI;
-    @FXML
-    private Label labelCheckBox;
-    @FXML
-    private Label labelChoiseBox;
-    @FXML
-    private Label labelComboBox;
-    @FXML
-    private Label labelRadioButton;
+    private Label labelMultiAnswerResult;
 
     @FXML
-    private ChoiceBox<String> choiceBox; // ChoiceBox для вибору варіанту
+    private ChoiceBox<String> choiceBoxDepartment;
     @FXML
-    private ComboBox<String> ComboBox; // ComboBox з автозаповненням
+    private Button buttonVerifyChoice;
+    @FXML
+    private Label labelChoiceResult;
+
+    @FXML
+    private ComboBox<String> comboBoxSpecialization;
+    @FXML
+    private Label labelComboBoxResult;
+
+    @FXML
+    private RadioButton radioButtonFavoriteCourse1;
+    @FXML
+    private RadioButton radioButtonFavoriteCourse2;
+    @FXML
+    private RadioButton radioButtonFavoriteCourse3;
+    @FXML
+    private Button buttonVerifyRadio;
+    @FXML
+    private Label labelRadioResult;
 
     @FXML
     public void initialize() {
-        // Додати елементи до ChoiceBox
-        choiceBox.getItems().addAll("КН31", "КН32с", "КН33с");
+        // Initialize ChoiceBox
+        choiceBoxDepartment.getItems().addAll("Кафедра комп'ютерних наук", "Кафедра інформаційних систем", "Кафедра кібербезпеки");
+        labelChoiceResult.setText("Оберіть кафедру");
 
-        // Встановити початковий текст у Label
-        labelChoiseBox.setText("Оберіть варіант");
+        // Initialize ComboBox with suggestions
+        ObservableList<String> options = FXCollections.observableArrayList(
+                "Комп'ютерні науки","Програмна інженерія",
+                "Кібербезпека","Інженерія програмного забезпечення",
+                "Інформаційні технології");
+        comboBoxSpecialization.setItems(options);
+        comboBoxSpecialization.setEditable(true);
 
-        // Додавання варіантів до ComboBox
-        ObservableList<String> options = FXCollections.observableArrayList("КН31", "КН32с", "КН33с");
-        ComboBox.setItems(options);
-        ComboBox.setEditable(true); // Робимо ComboBox редагованим
-
-        // Додаємо слухач для автозаповнення
-        ComboBox.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue == null || newValue.isEmpty()) {
-                ComboBox.setItems(options); // Показуємо всі варіанти
-            } else {
-                // Фільтруємо варіанти
-                ObservableList<String> filteredOptions = options.filtered(option -> option.toLowerCase().contains(newValue.toLowerCase()));
-                ComboBox.setItems(filteredOptions);
-
-                // Автоматично відкриваємо випадаючий список
-                if (!filteredOptions.isEmpty()) {
-                    ComboBox.show();
-                }
+        comboBoxSpecialization.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                labelComboBoxResult.setText("");
+                comboBoxSpecialization.hide();
+                return;
             }
 
-            // Змінюємо labelComboBox на "Правильно" при виборі "КН32с"
-            if ("КН32с".equalsIgnoreCase(newValue)) {
-                labelComboBox.setText("Правильно");
+            // Filter items based on input
+            ObservableList<String> filteredOptions = options.filtered(item ->
+                    item.toLowerCase().contains(newValue.toLowerCase())
+            );
+            comboBoxSpecialization.setItems(filteredOptions);
+
+            // If there's a match, show suggestions
+            if (!filteredOptions.isEmpty()) {
+                comboBoxSpecialization.show();
+            }
+
+            // Check if the exact match is selected
+            if (options.contains(newValue)) {
+                checkComboBoxAnswer(newValue);
             } else {
-                labelComboBox.setText("");
+                labelComboBoxResult.setText("");
             }
         });
 
-        // Обробка вибору
-        ComboBox.setOnAction(event -> checkComboBox());
+        // Listener to handle selection from ComboBox
+        comboBoxSpecialization.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null && options.contains(newValue)) {
+                checkComboBoxAnswer(newValue);
+            }
+        });
 
-        // Додавання RadioButton до ToggleGroup для забезпечення взаємовиключення
-        ToggleGroup radioGroup = new ToggleGroup();
-        KG.setToggleGroup(radioGroup);
-        LMV.setToggleGroup(radioGroup);
-        TVOI.setToggleGroup(radioGroup);
+        // RadioButton Group
+        ToggleGroup favoriteCourseGroup = new ToggleGroup();
+        radioButtonFavoriteCourse1.setToggleGroup(favoriteCourseGroup);
+        radioButtonFavoriteCourse2.setToggleGroup(favoriteCourseGroup);
+        radioButtonFavoriteCourse3.setToggleGroup(favoriteCourseGroup);
     }
 
     @FXML
-    void checkCheckBox(ActionEvent event) {
-        // Перевірка стану CheckBox
-        boolean isBogdanSelected = Bogdan.isSelected();
-        boolean isNataliaSelected = Natalia.isSelected();
-        boolean isIvanSelected = Ivan.isSelected();
+    public void verifyMultiAnswer(ActionEvent event) {
+        boolean isStudent1Correct = checkBoxStudent1.isSelected();
+        boolean isStudent2Correct = checkBoxStudent2.isSelected();
+        boolean isStudent3Correct = !checkBoxStudent3.isSelected();
 
-        // Логіка перевірки
-        if (isBogdanSelected && isNataliaSelected && !isIvanSelected) {
-            labelCheckBox.setText("Відповідь правильна");
+        if (isStudent1Correct && isStudent2Correct && isStudent3Correct) {
+            labelMultiAnswerResult.setText("Відповідь правильна");
+            labelMultiAnswerResult.setStyle("-fx-text-fill: green;");
         } else {
-            labelCheckBox.setText("Відповідь не правильна");
+            labelMultiAnswerResult.setText("Відповідь неправильна");
+            labelMultiAnswerResult.setStyle("-fx-text-fill: red;");
         }
     }
 
     @FXML
-    public void checkChoiseBox() {
-        // Отримати вибраний елемент
-        String selectedOption = choiceBox.getValue();
-
-        // Логіка перевірки
-        if ("КН31".equals(selectedOption)) {
-            labelChoiseBox.setText("Правильно");
+    public void verifyChoiceBox() {
+        String selectedDepartment = choiceBoxDepartment.getValue();
+        if ("Кафедра комп'ютерних наук".equals(selectedDepartment)) {
+            labelChoiceResult.setText("Правильно");
+            labelChoiceResult.setStyle("-fx-text-fill: green;");
         } else {
-            labelChoiseBox.setText("Не правильно");
+            labelChoiceResult.setText("Неправильно");
+            labelChoiceResult.setStyle("-fx-text-fill: red;");
         }
     }
 
     @FXML
-    private void checkComboBox() {
-        // Перевіряємо вибраний елемент у ComboBox
-        String selected = ComboBox.getValue();
-        if ("КН32с".equalsIgnoreCase(selected)) {
-            labelComboBox.setText("Правильно");
+    public void verifyRadioButton(ActionEvent event) {
+        if (radioButtonFavoriteCourse1.isSelected()) {
+            labelRadioResult.setText("Правильно");
+            labelRadioResult.setStyle("-fx-text-fill: green;");
         } else {
-            labelComboBox.setText("Неправильно");
+            labelRadioResult.setText("Неправильно");
+            labelRadioResult.setStyle("-fx-text-fill: red;");
         }
     }
 
-    @FXML
-    void checkRadioButton(ActionEvent event) {
-        // Перевіряємо, який RadioButton вибрано
-        if (LMV.isSelected()) {
-            labelRadioButton.setText("Правильно"); // Якщо вибрано LMV
+    private void checkComboBoxAnswer(String selectedSpecialization) {
+        if ("Кібербезпека".equalsIgnoreCase(selectedSpecialization)) {
+            labelComboBoxResult.setText("Правильно");
+            labelComboBoxResult.setStyle("-fx-text-fill: green;");
         } else {
-            labelRadioButton.setText("Неправильно"); // Для інших варіантів
+            labelComboBoxResult.setText("Неправильно");
+            labelComboBoxResult.setStyle("-fx-text-fill: red;");
         }
     }
 }
