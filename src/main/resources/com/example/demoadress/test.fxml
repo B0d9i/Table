@@ -9,10 +9,10 @@
 
       <!-- Multi-Answer Question -->
       <VBox spacing="5">
-         <Label text="Обрати правильних студентів:"/>
+         <Label text="Обрати правильних здобувачів освіти:"/>
          <CheckBox fx:id="checkBoxStudent1" text="Богдан Дмитрук"/>
          <CheckBox fx:id="checkBoxStudent2" text="Мартін Думас"/>
-         <CheckBox fx:id="checkBoxStudent3" text="Роман Гринь"/>
+         <CheckBox fx:id="checkBoxStudent3" text="Роман Грінь"/>
          <Button fx:id="buttonVerifyMultiAnswer" text="Перевірити" onAction="#verifyMultiAnswer"/>
          <Label fx:id="labelMultiAnswerResult" text="" style="-fx-text-fill: blue;"/>
       </VBox>

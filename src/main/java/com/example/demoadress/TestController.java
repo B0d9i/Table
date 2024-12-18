@@ -135,7 +135,7 @@ public class TestController {
     }
 
     private void checkComboBoxAnswer(String selectedSpecialization) {
-        if ("Кібербезпека".equalsIgnoreCase(selectedSpecialization)) {
+        if ("Комп'ютерні науки".equalsIgnoreCase(selectedSpecialization)) {
             labelComboBoxResult.setText("Правильно");
             labelComboBoxResult.setStyle("-fx-text-fill: green;");
         } else {
