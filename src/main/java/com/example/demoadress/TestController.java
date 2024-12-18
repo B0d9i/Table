@@ -45,8 +45,8 @@ public class TestController {
     @FXML
     public void initialize() {
         // Initialize ChoiceBox
-        choiceBoxDepartment.getItems().addAll("Кафедра комп'ютерних наук", "Кафедра інформаційних систем", "Кафедра кібербезпеки");
-        labelChoiceResult.setText("Оберіть кафедру");
+        choiceBoxDepartment.getItems().addAll("Кафедра комп'ютерних наук", "Кафедра інформаційних систем", "Кафедра кібербезпеки","Кафедра інформаційних технологій та систем електронних комунікацій");
+
 
         // Initialize ComboBox with suggestions
         ObservableList<String> options = FXCollections.observableArrayList(
@@ -114,7 +114,7 @@ public class TestController {
     @FXML
     public void verifyChoiceBox() {
         String selectedDepartment = choiceBoxDepartment.getValue();
-        if ("Кафедра комп'ютерних наук".equals(selectedDepartment)) {
+        if ("Кафедра інформаційних технологій та систем електронних комунікацій".equals(selectedDepartment)) {
             labelChoiceResult.setText("Правильно");
             labelChoiceResult.setStyle("-fx-text-fill: green;");
         } else {

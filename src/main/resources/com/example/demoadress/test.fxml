@@ -4,41 +4,41 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoadress.TestController">
-   <VBox spacing="10" alignment="CENTER" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0">
-      <Label text="Тести про університет" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+   <VBox spacing="20" alignment="CENTER" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <Label text="Тести про університет" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #3A3A3A;"/>
 
       <!-- Multi-Answer Question -->
-      <VBox spacing="5">
-         <Label text="Обрати правильних здобувачів освіти:"/>
-         <CheckBox fx:id="checkBoxStudent1" text="Богдан Дмитрук"/>
-         <CheckBox fx:id="checkBoxStudent2" text="Мартін Думас"/>
-         <CheckBox fx:id="checkBoxStudent3" text="Роман Грінь"/>
-         <Button fx:id="buttonVerifyMultiAnswer" text="Перевірити" onAction="#verifyMultiAnswer"/>
+      <VBox spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-border-radius: 10;">
+         <Label text="Обрати правильних здобувачів освіти:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+         <CheckBox fx:id="checkBoxStudent1" text="Богдан Дмитрук" style="-fx-font-size: 14px;"/>
+         <CheckBox fx:id="checkBoxStudent2" text="Мартін Думас" style="-fx-font-size: 14px;"/>
+         <CheckBox fx:id="checkBoxStudent3" text="Роман Грінь" style="-fx-font-size: 14px;"/>
+         <Button fx:id="buttonVerifyMultiAnswer" text="Перевірити" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" onAction="#verifyMultiAnswer"/>
          <Label fx:id="labelMultiAnswerResult" text="" style="-fx-text-fill: blue;"/>
       </VBox>
 
       <!-- ChoiceBox Question -->
-      <VBox spacing="5">
-         <Label text="Оберіть кафедру:"/>
-         <ChoiceBox fx:id="choiceBoxDepartment"/>
-         <Button fx:id="buttonVerifyChoice" text="Перевірити" onAction="#verifyChoiceBox"/>
+      <VBox spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-border-radius: 10;">
+         <Label text="Оберіть кафедру:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+         <ChoiceBox fx:id="choiceBoxDepartment" style="-fx-font-size: 14px;"/>
+         <Button fx:id="buttonVerifyChoice" text="Перевірити" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" onAction="#verifyChoiceBox"/>
          <Label fx:id="labelChoiceResult" text="" style="-fx-text-fill: blue;"/>
       </VBox>
 
       <!-- ComboBox Question -->
-      <VBox spacing="5">
-         <Label text="Оберіть спеціальність:"/>
-         <ComboBox fx:id="comboBoxSpecialization" promptText="Введіть спеціальність"/>
+      <VBox spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-border-radius: 10;">
+         <Label text="Оберіть спеціальність:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+         <ComboBox fx:id="comboBoxSpecialization" promptText="Введіть спеціальність" style="-fx-font-size: 14px;"/>
          <Label fx:id="labelComboBoxResult" text="" style="-fx-text-fill: green;"/>
       </VBox>
 
       <!-- RadioButton Question -->
-      <VBox spacing="5">
-         <Label text="Ваш улюблений курс?"/>
-         <RadioButton fx:id="radioButtonFavoriteCourse1" text="Основи програмування"/>
-         <RadioButton fx:id="radioButtonFavoriteCourse2" text="Математичний аналіз"/>
-         <RadioButton fx:id="radioButtonFavoriteCourse3" text="Мережі та безпека"/>
-         <Button fx:id="buttonVerifyRadio" text="Перевірити" onAction="#verifyRadioButton"/>
+      <VBox spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-border-radius: 10;">
+         <Label text="Ваш улюблений курс?" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+         <RadioButton fx:id="radioButtonFavoriteCourse1" text="Основи програмування" style="-fx-font-size: 14px;"/>
+         <RadioButton fx:id="radioButtonFavoriteCourse2" text="Математичний аналіз" style="-fx-font-size: 14px;"/>
+         <RadioButton fx:id="radioButtonFavoriteCourse3" text="Мережі та безпека" style="-fx-font-size: 14px;"/>
+         <Button fx:id="buttonVerifyRadio" text="Перевірити" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" onAction="#verifyRadioButton"/>
          <Label fx:id="labelRadioResult" text="" style="-fx-text-fill: red;"/>
       </VBox>
    </VBox>
